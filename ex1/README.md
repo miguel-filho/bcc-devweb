@@ -1,74 +1,72 @@
 ## Exercícios:
-1. Faça uma mensagem de **'Olá Mundo'**....
+1. Exiba uma mensagem de **'Olá Mundo'**. [use a função alert]
 
-2. Faça essa mensagem em um arquivo javascript externo e chame ela...
+2. Crie uma função para exibir a mensagem da questão anterior, em um arquivo javascript externo e
+faça a função ser executada após a página ser carregada.
 
-3. Faça uma saída de soma de 2 inteiros, ex: alert(2 + 2)
+3. Exiba uma mensagem com a distância euclidiana dos seguintes pontos do plano: (3, 7), (31, 42).
 
-4. No HTML Crie:
+4. Crie os componentes e comportamentos abaixo descritos:
 
-```
-1 - Campo/Input do tipo text para preencher o nome completo.
-1 - Botão com o texto: 'Exibir Nome' e ao clicar neste botão é exibido um alert com o valor do campo nome completo, ex: ' O Nome Completo é: "xxxx". '
-```
+  - Um input (campo) do tipo text com label (rótulo) 'Nome Completo'.
+  - Um botão com o texto: 'Exibir Nome'.
+  - Ao clicar neste botão é exibido um alert com o valor do campo de texto, ex:
+  'O Nome Completo é: "xxxx".'
 
-5. exiba a quantidade de letras que possuem o texto inserido ao clicar no botão
+5. Exiba a quantidade de letras que possuem o texto inserido ao clicar no botão
 
 ```
 Exemplos de entrada e saida:
-'Joel' // 4
-'Silva' // 5
-'Joel Silva' // 10
-'Joel Silva Uchoa' // 16
+'Joel'             -> 4
+'Silva'            -> 5
+'Joel Silva'       -> 10
+'Joel Silva Uchoa' -> 16
 ```
 
-6. No seu HTML exiba a imagem de uma lampada, ao clicar em cima da lampada,
-troque o src dela para a lampada que está ligada.
+6. No seu HTML exiba a imagem de uma lampada, ao clicar em cima da lâmpada,
+substitua a lampada por uma lâmpada ligada. (imagens na pasta "imagens")
 
 ```
 Desliga: src='images/lampada.jpg'
 Ligada: src='images/lampada-on.jpg'
 ```
 
-7. Agora que você já sabe utilizar o evento 'click', aprenda a usar o
-	'mouseover', ao passar o mouse em cima da 'lampada.jpg' altere ela para
-	'lampada-on.jpg' (Exemplo abaixo).
+7. Agora que você já sabe utilizar o evento "click", aprenda a usar o evento
+"mouseover", ao passar o mouse em cima da "lampada.jpg" altere ela para
+"lampada-on.jpg".
 
-8. no campo texto do exercício anterior, preencha um CPF (com pontuação e exiba
-o mesmo sem pontuação)
+8. Em um campo texto, preencha um CPF com pontuação, ao terminar de digitar, remova do CPF
+a pontuação, deixando apenas os números no campo de texto.
 
-9. no campo texto do exercício anterior, preencha um CPF (sem pontuação e exiba
-o mesmo com pontuação)
+9. Em um campo de texto, preencha um CPF sem pontuação. Enquanto o CPF é digitado, atualize
+o conteúdo do campo de texto com o CPF parcialmente digitado, mas com pontuação.
 
 10. No HTML Crie:
 
 ```
-2 x - Campo/Input do tipo text. (id=soma1, id=soma1)
-1 x - Botão (id=btn-soma)
-1 x - Campo (id=resultado-soma)
+2 x campos de texto. (id=valor1, id=valor2)
+1 x botão (id=somar)
+1 x campo de texto (id=resultado)
 
-Caso esteja preenchido um valor númerico nos dois campos(id=soma1, id=soma1), 
-A soma deles ira aparecer no campo (id=resultado-soma) ao clicar no botão (id=btn-soma).
+Caso esteja preenchido um valor númerico nos dois campos(id=valor1, id=valor2), 
+A soma deles ira aparecer no campo (id=resultado) ao clicar no botão (id=somar).
 ```
 
-11. Crie dois botões no HTML chamados: 'Verde', 'Amarelo'. Ao clicar neles, o
-style="background-color: {COR-SELECIONADA}" deve ser alterado dinamicamente
-para a cor do botão.
+11. Crie dois botões no HTML chamados: 'Verde', 'Amarelo'. Ao clicar neles, a
+cor de fundo da página deve ser alterado dinamicamente para a cor do botão pressionado.
 
-12. Crie uma div com o id 'resultado' no html (vazia) e insira via JavaScript
+12. Crie uma div (vazia) com o id 'resultado' no html e insira via JavaScript
 no ato do 'Load'/'Carregar' da página o texto : 'Esse html veio do
 JavaScript...'
 
 13. Agora crie um botão que ao ser clicado faça a mesma ação do exercício
-anterior. Desta vez ele adiciona a frase "Esse texto foi inserido através do
-click." na div com id 'resultado'.
+anterior. Desta vez ele adiciona a frase "Esse texto foi inserido através do evento de 
+clique." na div com id 'resultado'.
 
-14. Crie uma função que recebe 2 parâmetros e retorna a soma deles. (copie a
-estrutura da questão 10 para testar a função)
+14. Crie uma função que recebe 2 parâmetros numéricos e retorna a exponenciação do primeiro pelo segundo.
 
 15. Crie uma função que recebe 2 parâmetros e retorna a soma deles, porem caso
-seja passado um parâmetro vazio ela deve retornar zero. (copie a estrutura da
-questão 10 para testar a função)
+seja passado um parâmetro vazio ou inválido ela deve retornar zero.
 
 16. Crie uma função que retorna a palavra (impar/par) de acordo com seu
 parâmetro inteiro.
