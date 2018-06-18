@@ -1,0 +1,26 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Validar Campo</title>
+<script type="text/javascript">
+function validaCampo(){
+  var campo = document.getElementById('campo');
+  var txt   = document.getElementById('campo').value;
+  var n     = txt.length;
+  if(n < 110){
+    alert("O Texto digitado tem " + n + " caracteres");
+    return false;
+    campo.focus();
+  }
+return true;
+}
+</script>
+</head>
+ 
+<body>
+<form name="frm1" action="pagina.php" method="post" onSubmit="return validaCampo()">
+   <label for="digite">Digite o texto:</label> 
+   <input name="campo" id="campo" type="text" size="100" maxlength="90" />
+</form>
+</body>
+</html>

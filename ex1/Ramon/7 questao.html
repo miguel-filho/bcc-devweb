@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>lampada</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<img src="./imagens/lampada.jpg" id="luz" />
+</body>
+
+<script>
+	(function(){
+
+		var inteira = true;
+		var img = document.getElementById("luz");
+		var estado = {
+			click: './imagens/lampada.jpg',
+			mouseenter: './imagens/lampada-on.jpg',
+			mouseleave: './imagens/lampada.jpg'
+		};
+
+		img.addEventListener('click', mudaLampada);
+		img.addEventListener('mouseenter', mudaLampada);
+		img.addEventListener('mouseleave', mudaLampada);
+
+		function mudaLampada(evento) {
+			if (!inteira) return;
+			if (evento.type == 'click') inteira = true;
+			img.src = estado[evento.type];
+		}
+
+	})();
+</script>
+
+
+</html>
