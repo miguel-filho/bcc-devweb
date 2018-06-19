@@ -27,8 +27,8 @@ Exemplos de entrada e saida:
 substitua a lampada por uma lâmpada ligada. (imagens na pasta "imagens")
 
 ```
-Desliga: src='images/lampada.jpg'
-Ligada: src='images/lampada-on.jpg'
+Desliga: src='../imagens/lampada.jpg'
+Ligada: src='../imagens/lampada-on.jpg'
 ```
 
 7. Agora que você já sabe utilizar o evento "click", aprenda a usar o evento
