@@ -1,4 +1,5 @@
 ## Exercícios:
+
 1. Exiba uma mensagem de **'Olá Mundo'**. [use a função alert]
 
 2. Crie uma função para exibir a mensagem da questão anterior, em um arquivo javascript externo e
