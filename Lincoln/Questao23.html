@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Questão 23</title>
+<script>
+	function verificaCadeia() {
+		let texto = document.getElementById('cadeia').value
+		let result = texto.indexOf('dota')
+		if (result > -1) {
+			texto = texto.concat(' (verdadeiro)')
+		}
+		else {
+			texto = texto.concat(' (falso)')
+		}
+		alert(texto)
+    }
+</script>
+</head>
+
+<body>
+	Cadeia
+	<input type="text" id="cadeia"><br><br>
+	<input type="submit" OnClick="verificaCadeia()" value="Verificar String"> 
+</body>
+
+</html> 
