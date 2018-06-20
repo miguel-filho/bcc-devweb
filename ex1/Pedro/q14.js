@@ -2,9 +2,11 @@ function getValue(id) {
     let valor = document.getElementById(id).value
     return valor                
 }
+
 function valido(x){
     return !isNaN(x) && x != ''
 }
+
 function pot(){
     let base = getValue("base")
     let exp = getValue("exp")
