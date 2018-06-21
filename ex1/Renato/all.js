@@ -47,6 +47,7 @@ function conta100(){
     }
     document.getElementById("resultado").innerHTML = saida;
 }
+
 // Questão 21
 function conta500pares(){
     let i;
@@ -151,16 +152,76 @@ function maisFrequente(entrada){
             palavras[name] += 1;
         }
     }
-    
-    lista = Object.values(palavras).sort(function(a,b){return b - a});
-    let out = Object.keys(palavras).forEach(function(key){
+    //nomes = Object.keys(palavras)
+    chaves = Object.keys(palavras)
+    lista = []
+    for(let i in chaves){
+        lista.push({
+            nome: chaves[i],
+            freq: palavras[chaves[i]]
+        })
+    }
 
-    });
-    // palavras.forEach(function(key, index) {
-    //     // let i = 0;
-    //     //lista.push(lista.index);
-    //     // i += 1;
-    // });
-    document.getElementById('saida').innerHTML = lista;
-    lista = [];
+    lista.sort(function(a , b){return b.freq - a.freq})
+    let acu = ""
+    lista.forEach((ele) => {
+        acu += "<li>" + ele.nome + ":" + ele.freq + "</li>";
+    })
+    document.getElementById('saida').innerHTML = acu;
+}
+
+// Questão 29
+let vetor = [], cont = 0
+function listaDestaque(){
+    let nome = document.getElementById("txtNome").value;
+    if(nome != ""){
+        vetor.push(nome);
+    }
+    let acum = "";
+    for(let j in vetor){
+        if(j % 2 == 0){
+            acum += "<li>"+vetor[j]+"</li>"
+        }
+        else{
+            acum += "<li style=\"background-color:#ABAACB\">"+vetor[j]+"</li>"
+        }
+    }
+    document.getElementById('ul_saida').innerHTML = acum;
+}
+
+//Questão 30
+const dispara = () => {
+    contagemRegressiva(10)
+}
+function contagemRegressiva(cont)
+{
+    if(cont >= 0) {
+        document.body.innerHTML = cont
+        setTimeout(contagemRegressiva, 1000, cont-1);
+    }
+}
+
+//Questão 31
+function moveDiv(){
+    let div = document.getElementById("divImg");
+    div.style.lef += "10px";
+}
+let andar = 3;
+let troca = 0;
+function animaImagens(){
+
+    setTimeout(trocaImagem, 200, troca);
+    troca++
+    if(troca == 3){troca = 0;}
+    andar += 5;    
+}
+function trocaImagem(imgId){
+    document.getElementById('imgUrso').src = "../imagens/urso"+imgId+".png";
+    let div = document.getElementById("divImg");
+    div.style.left = andar+"px";
+}
+
+//Questão 32
+function excluirItem(){
+ alert("Vai Brasil!!")
 }
