@@ -312,6 +312,106 @@ function q26Show(){
 }
 // window.onload = q26Show
 
+// QUESTÃO 27
 
+function show(){
+    array.sort((a,b) => {
+        let x1 = a.toLowerCase()
+        let x2 = b.toLowerCase()
+        if (x1 > menor) return -1
+        if (x2 > menor) return 1
+        return 0
 
+    })
+
+    let resp =""
+    for (let i=0;i<array.length;i++)
+        resp += `<li>${array[i]}</li>`
+    document.getElementById("lista").innerHTML = resp
+}
+let array = [];
+function q27Listar(){
+    let v = document.getElementById("v1").value
+    array.push(v)
+    show()
+}
+
+// QUESTÃO 28
+Palavra = (nome, freq) => {
+    return {nome,freq}
+} 
+
+listaPalavras = []
+
+function buscaPalavra(palavra){
+    for(let i = 0; i < listaPalavras.length; i++){
+        if(palavra == listaPalavras[i].nome)
+            return listaPalavras[i];
+    }
+    return null;
+}
+
+function addPalavra(){
+   
+    let nome = document.getElementById("nome").value
+    let res = buscaPalavra(nome)
+    if(!res){
+        let novaPalavra = Palavra(nome, 1)
+        listaPalavras.push(novaPalavra)
+    }
+    else{
+        res.freq++
+    }
+    updateView()
+}
+
+function updateView(){
+    let tagDiv = document.getElementById("rank")
+    let acu = ""
+    listaPalavras.sort(function(a, b){return  b.freq-a.freq})
+    for(let i = 0; i < listaPalavras.length; i++){
+        acu += `<li> ${listaPalavras[i].nome}:${listaPalavras[i].freq}</li>`
+    }
+    tagDiv.innerHTML = acu
+}
     
+// QUESTÃO 29
+
+function q29Show(){
+    q29Array.sort()
+    let resp =""
+    for (let i=0;i<q29Array.length;i++){
+        if (q29Array[i]%2 == 0){
+            resp += `<li style = "color: #33F;">${q29Array[i]}</li>`
+        }
+        else
+            resp += `<li>${q29Array[i]}</li>`
+    }
+        
+    document.getElementById("lista").innerHTML = resp
+}
+let q29Array = [];
+function q29Listar(){
+    let v = parseInt(document.getElementById("v1").value)
+    q29Array.push(v)
+    q29Show()
+}
+
+//Questão 30
+const dispara = () => {
+    contagemRegressiva(10)
+}
+function contagemRegressiva(cont)
+{
+    if(cont >= 0) {
+        document.body.innerHTML = cont
+        setTimeout(contagemRegressiva, 1000, cont-1);
+    }
+}
+//window.onload = dispara
+
+//Questão 31
+
+
+
+//Questao 32
