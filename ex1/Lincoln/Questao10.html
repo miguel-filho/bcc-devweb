@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Questão 10</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script>
+	function soma() {
+		let val1 = parseFloat(document.getElementById('valor1').value)
+		let val2 = parseFloat(document.getElementById('valor2').value)
+		document.getElementById('resultado').value = (val1 + val2)
+	}
+</script>
+</head>
+<body>
+	Valor 1
+	<input type="text" id="valor1"><br><br>
+	Valor 2
+	<input type="text" id="valor2"><br><br>
+	Resultado
+	<input type="text" id="resultado"><br><br>
+	<input type="submit" OnClick="soma()" value="Somar"> 
+</body>
+</body>
+</html>
