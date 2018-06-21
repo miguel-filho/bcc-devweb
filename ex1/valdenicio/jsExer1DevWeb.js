@@ -300,8 +300,17 @@ function q25Show(){
     }
 }
 
+// QUESTÃO 26
 
-
+function q26Show(){
+    const h = new Date();
+    let res = "";
+    res =  h.getDate() + "/" + h.getMonth() + "/" + h.getFullYear() + " " + h.getHours()
+    + ":" + h.getMinutes() + ":" + h.getSeconds()
+    document.getElementById("resultado").innerHTML = res;
+    setTimeout(q26Show, 1)
+}
+// window.onload = q26Show
 
 
 
