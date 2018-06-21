@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Questão 20</title>
+<script>
+	 function repeticaoDiv() {
+		let texto = ''
+		for (let i = 0; i <= 100; i++) {
+			texto = texto.concat(i)
+			texto = texto.concat('<br>')
+		}
+		document.getElementById("resultado").innerHTML = texto
+	 }
+</script>
+</head>
+
+<body">
+	<div id="resultado"></div>
+	<input type="submit" OnClick="repeticaoDiv()" value="Insere Números">
+</body>
+
+</html> 

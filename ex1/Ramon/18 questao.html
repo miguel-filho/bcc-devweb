@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+    Ano de Nascimento:
+    <input id="anoNascimento" type="text">
+
+    <input id="btt" type="submit" value="Checar" onclick="checarMaiorIdade()">
+    <br><br>
+    Resultado:
+    <input id="resposta" type="text">
+</body>
+
+<script type="text/javascript">
+    
+
+function checarMaiorIdade(){
+    let anoNascimento = parseFloat(document.getElementById("anoNascimento").value)
+    let data = new Date()
+    let anoAtual = data.getFullYear()
+    let resultado = anoAtual - anoNascimento
+    if (resposta == "" || resposta == 0 || anoNascimento > anoAtual)
+        document.getElementById("resposta").value = "Valor invalido"
+    else if (resultado < 18)
+        document.getElementById("resposta").value = "Menor de idade"
+    else
+        document.getElementById("resposta").value = "Maior de idade"
+}
+
+</script>
+</html>

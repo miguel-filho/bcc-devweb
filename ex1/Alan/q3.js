@@ -1,0 +1,1 @@
+alert('A distância euclidiana entre os pontos(31, 42) e (3, 7) são: ' + Math.sqrt(Math.pow(31-3, 2) + Math.pow(42-7, 2)).toFixed(4));

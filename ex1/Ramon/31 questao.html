@@ -1,0 +1,23 @@
+<html>
+<head>
+	<script type="text/javascript">
+		var elenco = new Array();
+		elenco [0] = './imagens/urso0.png';
+		elenco [1] = './imagens/urso1.png';
+		elenco [2] = './imagens/urso2.png';
+		var prox = 0;
+		function poeImagem()
+		{
+			document.getElementById('foto').src = elenco[ prox ];
+			prox++;
+			if( prox == (elenco.length) ) prox = 0;
+		}
+		window.setInterval(poeImagem, 200);
+	</script> 
+</head>
+<body>
+
+	<img src="./imagens/urso0.png" alt="" id="foto" width="42" height="42" />
+
+</body>
+</html>
