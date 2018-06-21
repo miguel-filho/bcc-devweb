@@ -287,14 +287,14 @@ function q25Show(){
     let n = parseFloat(document.getElementById("v1").value)
     let a = parseInt(Math.floor(Math.random() * 3) + 1)
     if(n == a){
+        q25Lista.push(`Numero digitado ${n} IGUAL ao numero gerado ${a}`)
         for(let i=0;i<q25Lista.length;i++){
-            q25Lista.push(`Numero digitado ${n} IGUAL ao numero gerado ${a}`)
             document.getElementById("resultado").innerHTML += q25Lista[i] + "<br / >"
         }
     }
     else{
+        q25Lista.push(`Numero digitado ${n} DIFERENTE do numero gerado ${a}`)
         for(let j=0;j<q25Lista.length;j++){
-            q25Lista.push(`Numero digitado ${n} DIFERENTE do numero gerado ${a}`)
             document.getElementById("resultado").innerHTML += q25Lista[j] + "<br / >"
         }
     }
