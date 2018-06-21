@@ -1,4 +1,5 @@
 ## Exercícios:
+
 1. Exiba uma mensagem de **'Olá Mundo'**. [use a função alert]
 
 2. Crie uma função para exibir a mensagem da questão anterior, em um arquivo javascript externo e
@@ -27,8 +28,8 @@ Exemplos de entrada e saida:
 substitua a lampada por uma lâmpada ligada. (imagens na pasta "imagens")
 
 ```
-Desliga: src='images/lampada.jpg'
-Ligada: src='images/lampada-on.jpg'
+Desliga: src='../imagens/lampada.jpg'
+Ligada: src='../imagens/lampada-on.jpg'
 ```
 
 7. Agora que você já sabe utilizar o evento "click", aprenda a usar o evento
