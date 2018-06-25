@@ -1,23 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="q10.js"></script>
-</head>
-<body>
-    Valor 1: <br>
-    <input onkeydown="valida()" id="valor1" type="text" > <br> 
-    Valor 2: <br> 
-    <input onkeydown="valida()" id="valor2" type="text" > <br>
-    <input id="bttSoma" type="submit" value="Somar" onclick="somar()">
-    <br>
-    Resultado: <br>
-    <input id="resp" type="text">
-    
+    <head>
+        <meta charset="utf-8" />
+        <title>Exercicio 1 - Dev Web</title>
+        <script src="jsExer1DevWeb.js"></script>
+    </head>
+    <body>
+        <label for="v1">Digite o valor 1: </label>
+        <input type="text" id="v1">
+        <label for="v2">Digite o valor 2: </label>
+        <input type="text" id="v2">
+        </br></br>
+        <label for="res">Resultado: </label>
+        <input type="text" id="res" onkeyup="q10Soma()">
 
-</body>
+    </body>
 </html>

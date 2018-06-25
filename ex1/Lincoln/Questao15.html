@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Questão 15</title>
+<script>
+	function calcularSoma(valor1, valor2) {
+		let soma = parseFloat(valor1) + parseFloat(valor2)
+		if (isNaN(soma.NaN)) {
+			soma = 0
+		}
+		document.write('Soma = ' + soma)		
+    }
+</script>
+</head>
+
+<body>
+	Número 1
+	<input type="text" id="numero1"><br><br>
+	Número 2
+	<input type="text" id="numero2"><br><br>
+	<input type="submit" OnClick="calcularSoma(numero1.value, numero2.value)" value="Realizar Soma"> 
+</body>
+
+</html> 

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Contador regressivo</title>
+    <BODY onload=startCountdown()>
+        <SCRIPT language=JavaScript>
+
+            var g_iCount = new Number();
+
+// de 5 a 0 //
+var g_iCount = 6;
+
+function startCountdown(){
+ if((g_iCount - 1) >= 0){
+     g_iCount = g_iCount - 1;
+     numberCountdown.innerText = g_iCount;
+     setTimeout('startCountdown()',1000);
+ }
+}
+</SCRIPT>
+
+</head>
+<body>
+
+    <FONT face="Times New Roman" color=#1e90ff size=50><B>
+        <DIV id=numberCountdown align=center></DIV>
+    </FONT>
+
+
+</body>
+</html>
