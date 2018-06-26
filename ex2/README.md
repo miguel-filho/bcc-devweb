@@ -15,3 +15,7 @@ usuário foi correto.
 
 3. "sair": encerrar a aplicação.
 
+Cada aluno deve criar uma pasta com seu nome, o projeto deve usar o framework
+"Node.js" e deve ser o melhor projetado possível. Use bibliotecas para facilitar
+sua vida.
+
