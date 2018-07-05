@@ -6,5 +6,6 @@ module.exports = (f) => {
     const $ = cheerio.load(html)
     const data = $('input[name="mostrador"]').attr('value')
     f(data)
+    console.log(data);
   })
 }
