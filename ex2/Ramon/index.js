@@ -5,8 +5,7 @@ let tentativas = 0
 let acertos = 0
 
 codigo.executar(function (soma) {
-	console.log('shh!! O valor é ' + soma + ' mas nao diga a ninguem shhh!');
-
+	
 	console.log('Digite (1) para jogar')
 	console.log('Digite (2) para exibir o placar')
 	console.log('Digite (0) para sair')
