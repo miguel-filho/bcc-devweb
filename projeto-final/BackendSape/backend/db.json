@@ -1,0 +1,17 @@
+{
+     "users":[{
+          "id":"1",
+          "firstName":"teste1",
+          "lastName":"teste1",
+          "email":"teste1@gmail",
+          "permission":"admin"
+     },
+     {
+          "id":"2",
+          "firstName":"teste2",
+          "lastName":"teste2",
+          "email":"teste2@gmail",
+          "permission":"default"
+     }
+     ]
+}
