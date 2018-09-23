@@ -3,6 +3,7 @@ const router = express.Router()
 const campusController = require('../controllers/campus-controller')
 
 router.get('/', campusController.get)
+router.get('/:id', campusController.getById)
 router.post('/', campusController.create)
 router.put('/:id', campusController.update)
 router.delete('/:id', campusController.delete)

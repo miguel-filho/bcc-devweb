@@ -2,34 +2,27 @@
 
 const tbCampus = 'campus'
 
-function sql(query){
-     console.log(query)
-     return query
+function sql(query) {
+    console.log(query)
+    return query
 }
 
 exports.get = () => {
-     return sql(`SELECT * FROM ${tbCampus}`)
+    return sql(`SELECT * FROM ${tbCampus}`)
 }
 
-exports.getById = (id) => {
-     return sql(`SELECT * FROM ${tbCampus} WHERE id = ${id}`)
+exports.getById = () => {
+    return sql(`SELECT * FROM ${tbCampus} WHERE id = ?`)
 }
 
-exports.save = (campus) => {
-      return sql(`INSERT INTO ${tbCampus} (nome, instituicao_id) VALUES (
-            '${campus.nome}',
-            '${campus.instituicao_id}'
-     )`)
+exports.save = () => {
+    return sql(`INSERT INTO ${tbCampus} SET ?`)
 }
 
-exports.update = (id, campus) => {
-     return sql(`UPDATE ${tbCampus} SET
-          nome = '${campus.nome}',
-          instituicao_id = '${campus.instituicao_id}'
-           WHERE id = ${id}
-     `)
+exports.update = () => {
+    return sql(`UPDATE ${tbCampus} SET ? WHERE id = ?`)
 }
 
-exports.remove = (id) => {
-     return sql(`DELETE FROM ${tbCampus} WHERE id = ${id}`)
+exports.remove = () => {
+    return sql(`DELETE FROM ${tbCampus} WHERE id = ?`)
 }

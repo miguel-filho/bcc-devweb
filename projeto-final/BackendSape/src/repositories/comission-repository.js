@@ -11,25 +11,18 @@ exports.get = () => {
      return sql(`SELECT * FROM ${tbComission}`)
 }
 
-exports.getById = (id) => {
-     return sql(`SELECT * FROM ${tbComission} WHERE id = ${id}`)
+exports.getById = () => {
+     return sql(`SELECT * FROM ${tbComission} WHERE id = ?`)
 }
 
-exports.save = (comission) => {
-      return sql(`INSERT INTO ${tbComission} (nome, evento_id) 
-      VALUES (
-     '${comission.nome}',
-      '${comission.evento_id}')`)
+exports.save = () => {
+      return sql(`INSERT INTO ${tbComission} SET ?`)
 }
 
-exports.update = (id, comission) => {
-     return sql(`UPDATE ${tbComission} SET
-          nome =           '${comission.nome}',
-          evento_id =      '${comission.evento_id}'
-           WHERE id = ${id}
-     `)
+exports.update = () => {
+     return sql(`UPDATE ${tbComission} SET ? WHERE id = ?`)
 }
 
-exports.remove = (id) => {
-     return sql(`DELETE FROM ${tbComission} WHERE id = ${id}`)
+exports.remove = () => {
+     return sql(`DELETE FROM ${tbComission} WHERE id = ?`)
 }
