@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Oficina</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+	<script src="/libs/bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+	<script src="/libs/bootstrap/js/popper.min.js"></script>
+	<script src="/libs/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="/stylesheets/libs/fontawesome.css">
+
+	<!-- Coockie -->
+	<script src="/javascripts/libs/js.cookie.min.js"></script>
+
+	<!-- CSS -->
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/login.css' />
+	<link rel='stylesheet' href='/stylesheets/cadastroServico.css' />
+	<link rel='stylesheet' href='/stylesheets/listServico.css' />
+
+	<!-- Compatibilidade com Browsers -->
+	<script src="/javascripts/libs/compatibility.js"></script>
+
+	<!-- Vue js -->
+	<script src="/javascripts/libs/vue.js"></script>
+	<script src="/javascripts/libs/vue-router.js"></script>
+
+	<script>
+		Vue.use(VueRouter)
+	</script>
+
+	<!-- Axios -->
+	<script src="/javascripts/libs/axios.min.js"></script>
+
+	<!-- Mixins -->
+	<script src="/javascripts/mixins/index.js"></script>
+
+	<!-- Páginas -->
+	<script src="/javascripts/pages/home.js"></script>
+	<script src="/javascripts/pages/login.js"></script>
+	<script src="/javascripts/pages/cadastroServico.js"></script>
+	<script src="/javascripts/pages/listServicos.js"></script>
+
+	<!-- Rotas -->
+	<script src="/javascripts/routers/index.js"></script>
+
+	<!-- Requisições -->
+	<script src="/javascripts/requests/HttpRequest.js"></script>
+	<script src="/javascripts/requests/ServicoRequest.js"></script>
+</head>
+
+<body>
+	<div id="app" class="container">
+		<router-view></router-view>
+	</div>
+</body>
+
+<!-- Templates -->
+
+<template id="home-template">
+	<div>
+		<div class="row">
+			<div class="col-12">
+				<h1>Seja Bem Vindo!</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<ul>
+					<li>
+						<router-link to="/cadastroServico">Cadastrar Um Serviço</router-link>
+					</li>
+					<li>
+						<router-link to="/servicoList">Listar Serviços</router-link>
+					</li>
+					<li>
+						<a href="#" @click.prevent.stop="sair">Sair</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template id="login-template">
+	<div>
+		<div class="row login-form">
+			<div class="col-4"></div>
+			<div class="col-4">
+				<div class="form-group">
+					<label for="txtlogin">Login</label>
+					<input id="txtlogin" v-model="login" type="text" class="form-control" aria-describedby="emailHelp" placeholder="Digite seu Login">
+					<small id="emailHelp" class="form-text text-muted">Nunca divulgue seu login para ninguem.</small>
+				</div>
+				<div class="form-group">
+					<label for="txtsenha">Senha</label>
+					<input id="txtsenha" v-model="senha" type="password" class="form-control" placeholder="Digite sua Senha">
+				</div>
+				<button @click.prevent.stop="logar" type="button" class="btn btn-primary">Entrar</button>
+			</div>
+			<div class="col-4"></div>
+		</div>
+	</div>
+</template>
+
+<template id="cadastro-servico-template">
+	<div>
+		<div class="row">
+			<div class="col-12">
+				<router-link to="/home">Home</router-link>
+			</div>
+		</div>
+		<div class="row cadastro-servico-form">
+			<div class="col-4"></div>
+			<div class="col-4">
+				<div class="form-group">
+					<label for="txtnome">Nome</label>
+					<input id="txtnome" v-model="nome" type="text" class="form-control" placeholder="Digite o Nome do Serviço">
+				</div>
+				<div class="form-group">
+					<label for="txttipo">Tipo</label>
+					<input id="txttipo" v-model="tipo" type="text" class="form-control" placeholder="Digite o Tipo de Serviço">
+				</div>
+				<div class="form-group">
+					<label for="txtvalor">Valor</label>
+					<input id="txtvalor" v-model="valor" type="number" class="form-control" placeholder="Digite o valor de Serviço">
+				</div>
+				<div class="form-group">
+					<label for="txtformapagamento">Forma de Pagamento</label>
+					<input id="txtformapagamento" v-model="formaPagamento" type="text" class="form-control" placeholder="Digite a forma de pagamento do Serviço">
+				</div>
+				<div class="form-group">
+					<label for="txtparcelas">Parcelas</label>
+					<input id="txtparcelas" v-model="parcelas" type="number" class="form-control" placeholder="Digite as Parcelas do Serviço">
+				</div>
+				<button @click.prevent.stop="cadastrar" type="button" class="btn btn-primary">Salvar</button>
+			</div>
+			<div class="col-4"></div>
+		</div>
+	</div>
+</template>
+
+<template id="list-servico-template">
+	<div>
+		<div class="row">
+			<div class="col-12">
+				<router-link to="/home">Home</router-link>
+			</div>
+		</div>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Nome</th>
+					<th scope="col">Tipo</th>
+					<th scope="col">Valor</th>
+					<th scope="col">Forma de pagamento</th>
+					<th scope="col">Parcelas</th>
+					<th scope="col">Opções</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="servico of servicos">
+					<td>{{ servico.nome }}</td>
+					<td>{{ servico.tipo }}</td>
+					<td>{{ servico.valor }}</td>
+					<td>{{ servico.formaPagamento }}</td>
+					<td>{{ servico.parcelas }}</td>
+					<td>
+						<a @click.prevent.stop="editar(servico)" class="option-list" href="#">
+							<i class="fas fa-pen"></i>
+						</a>
+						<a @click.prevent.stop="remover(servico)" class="option-list" href="#">
+							<i class="fas fa-trash-alt"></i>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</template>
+
+<!-- Vue js -->
+
+<script>
+	const app = new Vue({
+		el: '#app',
+		router: router
+	});
+</script>
+
+</html>
