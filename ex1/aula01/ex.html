@@ -1,0 +1,40 @@
+<html>
+  <head>
+      <meta charset="UTF-8">
+    <script src='ex.js'>
+    </script>
+    <style>
+      #img_lampada {
+        width:200px;
+        height:200px;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="input_nome">Nome completo</label>
+    <input id="input_nome" type="text" oninput="atualizar()"/>
+    <button onclick="show()">Exibir nome</button>
+    <br/>
+    <label for="input_tamanho">Tamanho do nome</label>
+    <input id="input_tamanho" type="text"/>
+    <br/>
+    <br/>
+    <img id='img_lampada'
+         src="off/lampada.jpg"
+         alt="desligada"
+         onmouseover ="interruptor(true)"
+         onmouseout ="interruptor(false)"/>
+    <br/>
+    <br/>
+    <label for="input_cpf">CPF</label>
+    <input id="input_cpf" type="text"
+           onchange="formatar()"/> 
+    <br/>
+    <br/>  
+    <input id="valor1" type="number"/> 
+    <input id="valor2" type="number"/> 
+    <button onclick="somar()">Somar</button>
+    <input id="resultado" type="number"/> 
+  </body>  
+</html>
