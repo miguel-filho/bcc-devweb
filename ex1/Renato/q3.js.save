@@ -1,8 +1,0 @@
-function euclidean_distance(){
-	let d = Math.sqrt(pow(31 - 3,2) + pow(42 - 7,2))
-	s d
-//	alert(d)
-}
-
-//window.onload = euclidean_distance()
-
