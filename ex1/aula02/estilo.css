@@ -1,0 +1,16 @@
+#resultado {
+    font-size: 200%;
+    color: blue;
+}
+
+div {
+    border: 1px solid red;
+    padding: 10px;
+    margin: 10px;
+}
+
+.tabuada {
+    display:inline-block;
+    
+    position: relative;
+}
