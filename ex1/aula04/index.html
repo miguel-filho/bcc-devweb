@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="modal.css">
+</head>
+
+<body>
+    <div id='app'>
+        <modal ref='confirmacao'
+            @confirmado='deletarEscola()'>
+        </modal>
+        <input v-model='escola'>
+        </input>
+        <button @click='newEscola()'>
+            Nova Escola
+        </button>
+        <ol>
+            <li v-for='e,i in escolas'>
+                {{ e }}
+                <i class="fas fa-trash-alt" @click='escolaParaDeletar=i;confirmar()'></i>
+            </li>
+        </ol>
+    </div>
+</body>
+
+</html>
+
+<script type="module">
+    import Modal from './modal.js'
+    Vue.component('modal', Modal)
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            escola: '',
+            escolaParaDeletar: -1,
+            escolas: ['Aaa', 'Bbb']
+        },
+        methods: {
+            newEscola() {
+                console.log(this)
+                this.escolas.push(this.escola)
+                console.log(this.escolas)
+                this.escolas.sort()
+            },
+            deletarEscola() {
+                this.escolas.splice(this.escolaParaDeletar, 1)
+            },
+            confirmar() {
+                this.$refs.confirmacao.abrir();
+            }
+        }
+    })
+</script>
