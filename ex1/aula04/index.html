@@ -1,28 +1,51 @@
 <html>
 
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
-        crossorigin="anonymous">
+    <script src="vue.js"></script>
+    <link rel="stylesheet" href="assets/css/all.css">
     <link rel="stylesheet" href="modal.css">
 </head>
 
 <body>
     <div id='app'>
-        <modal ref='confirmacao'
-            @confirmado='deletarEscola()'>
+        <modal ref='mEscola' @confirmado='deletarEscola()'>
         </modal>
-        <input v-model='escola'>
-        </input>
-        <button @click='newEscola()'>
-            Nova Escola
-        </button>
-        <ol>
-            <li v-for='e,i in escolas'>
-                {{ e }}
-                <i class="fas fa-trash-alt" @click='escolaParaDeletar=i;confirmar()'></i>
-            </li>
-        </ol>
+        <modal ref='mAluno' @confirmado='deletarAluno()'>
+        </modal>
+        <div>
+            <input v-model='escola'>
+            </input>
+            <button @click='newEscola()'>
+                Nova Escola
+            </button>
+            <ol>
+                <li v-for='e,i in escolas'>
+                    <div v-if="escolaParaEditar!==i">
+                        {{ e.nome }}
+                        <i class="fas fa-pen-alt" @click='escolaParaEditar=i'></i>
+                        <i class="fas fa-trash-alt" @click='escolaParaDeletar=i;confirmarEscola()'></i>
+                    </div>
+                    <input v-else v-model="escolas[i].nome" @keyup.enter="escolaParaEditar=-1; escolas.sort((a,b) => a.nome != b.nome ? a.nome < b.nome ? -1 : 1 : 0)"></input>
+
+                </li>
+            </ol>
+        </div>
+
+        <div>
+            <input v-model='aluno.nome'> </input>
+            <select v-model='aluno.escolaId'>
+                <option v-for='e in escolas' :value="e.id">{{e.nome}}</option>
+            </select>
+            <button @click='newAluno()'>
+                Novo Aluno
+            </button>
+            <ol>
+                <li v-for='a,i in alunos'>
+                    {{ a.nome }} - {{ escolaById(a.escolaId).nome }}
+                    <i class="fas fa-trash-alt" @click='alunoParaDeletar=i;confirmarAluno()'></i>
+                </li>
+            </ol>
+        </div>
     </div>
 </body>
 
@@ -35,22 +58,79 @@
     var app = new Vue({
         el: '#app',
         data: {
+            id: 2,
             escola: '',
+            escolaParaEditar: -1,
             escolaParaDeletar: -1,
-            escolas: ['Aaa', 'Bbb']
+            escolas: [
+                {
+                    id: 1,
+                    nome: 'Escola 1'
+                },
+                {
+                    id: 2,
+                    nome: 'Escola 2'
+                }
+            ],
+            aluno: {
+                nome: '',
+                escolaId: -1
+            },
+            alunoParaDeletar: -1,
+            alunos: [
+                {
+                    nome: 'Aluno 1',
+                    escolaId: 1
+                },
+                {
+                    nome: 'Aluno 2',
+                    escolaId: 2
+                }
+            ]
         },
         methods: {
+            getId() {
+                return (this.id += 1)
+            },
+
+            newObj(data = {}) {
+                return Object.merge({ id: getId() }, data)
+            },
+
             newEscola() {
-                console.log(this)
-                this.escolas.push(this.escola)
-                console.log(this.escolas)
+                const e = newObj({ nome: this.escola })
+                console.log(e)
+                this.escolas.push(e)
                 this.escolas.sort()
+            },
+            escolaById(id) {
+                console.log(this.escolas)
+                console.log(id)
+                for (let i in this.escolas) {
+                    const e = this.escolas[i]
+                    if (e.id == id) {
+                        return e
+                    }
+                }
+                return {}
             },
             deletarEscola() {
                 this.escolas.splice(this.escolaParaDeletar, 1)
             },
-            confirmar() {
-                this.$refs.confirmacao.abrir();
+            confirmarEscola() {
+                this.$refs.mEscola.abrir();
+            },
+
+            newAluno() {
+                console.log(this.aluno)
+                this.alunos.push(this.aluno)
+                this.alunos.sort()
+            },
+            deletarAluno() {
+                this.alunos.splice(this.alunoParaDeletar, 1)
+            },
+            confirmarAluno() {
+                this.$refs.mAluno.abrir();
             }
         }
     })
